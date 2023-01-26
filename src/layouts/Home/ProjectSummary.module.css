@@ -140,25 +140,27 @@
 }
 
 .svg {
+  transition: opacity 1400ms ease 1400ms;
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 1200ms ease 1400ms;
-  fill: var(--colorTextTitle);
-
+  color: var(--colorTextTitle);
   &[data-visible='true'] {
-    opacity: var(--opacity);
+    opacity: 0.3;
   }
 
   &[data-device='laptop'] {
     position: absolute;
     width: 100%;
-    right: -36%;
-    bottom: 24%;
+    right: -40%;
+    bottom: 20%;
+    font-size: 100px;
     transform: translateY(50%);
 
     @media (--mediaTablet) {
       width: 80%;
       right: -10%;
       bottom: 18%;
+      font-size: 50px;
     }
 
     @media (--mediaMobile) {
@@ -168,7 +170,8 @@
 
   &[data-device='phone'] {
     position: absolute;
-    bottom: 23%;
+    bottom: 20%;
+    font-size: 100px;
     transform: translateY(50%);
     width: 100%;
     transition-delay: 800ms;
@@ -176,6 +179,7 @@
     @media (--mediaTablet) {
       width: 80%;
       bottom: 23%;
+      font-size: 50px;
     }
   }
 }

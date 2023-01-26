@@ -1,15 +1,11 @@
-import gamestackTexture2Large from 'assets/gamestack-list-large.jpg';
-import gamestackTexture2Placeholder from 'assets/gamestack-list-placeholder.jpg';
-import gamestackTexture2 from 'assets/gamestack-list.jpg';
-import gamestackTextureLarge from 'assets/gamestack-login-large.jpg';
-import gamestackTexturePlaceholder from 'assets/gamestack-login-placeholder.jpg';
-import gamestackTexture from 'assets/gamestack-login.jpg';
 import sliceTextureLarge from 'assets/slice-app-large.jpg';
 import sliceTexturePlaceholder from 'assets/slice-app-placeholder.jpg';
 import sliceTexture from 'assets/slice-app.jpg';
-import sprTextureLarge from 'assets/spr-lesson-builder-dark-large.jpg';
+import stack from 'assets/stack-mob.png';
+import vertex from 'assets/vertex-mob.png';
+import laderach from 'assets/laderach.png';
+import smiels from 'assets/smiels.png';
 import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from 'assets/spr-lesson-builder-dark.jpg';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
@@ -17,8 +13,9 @@ import { Profile } from 'layouts/Home/Profile';
 import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
+import { Link } from 'components/Link';
 
-const disciplines = ['Developer', 'Prototyper', 'Animator', 'Illustrator', 'Modder'];
+const disciplines = ['Design', 'React', 'Threejs', 'R3F', 'Gsap'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
@@ -65,12 +62,22 @@ export const Home = () => {
     };
   }, [visibleSections]);
 
+  const getDescforMobGames = () => {
+    return (
+      <p>
+        Developed <Link href="https://stack-tower-3d.vercel.app">Stack</Link> and{' '}
+        <Link href="https://vertex-env.vercel.app">Vertex</Link> game with React3F.
+        Implemented gsap animations and cannonjs for realistic physics.
+      </p>
+    );
+  };
+
   return (
     <div className={styles.home}>
       <Meta
-        title="Designer + Developer"
-        description="Design portfolio of Hamish Williams — a product designer working on web & mobile
-          apps with a focus on motion, experience design, and accessibility."
+        title="Developer + Designer"
+        description="Developer portfolio of Saad Amir — a product designer working on web apps
+        with a focus on motion, experience design, and accessibility."
       />
       <Intro
         id="intro"
@@ -83,17 +90,18 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="Designing the future of education"
-        description="Designing a platform to help educators build better online courseware"
-        buttonText="View project"
-        buttonLink="/projects/smart-sparrow"
+        title="Läderach Swiss Chocolate"
+        description="Magento website development from figma design. Multiple technologies and 3rd party modules were also integrated."
+        urduWord={'رب پر ایمان'}
+        buttonText="Learn More"
+        buttonLink="/project/laderach-swiss-chocolate/"
         model={{
           type: 'laptop',
-          alt: 'Smart Sparrow lesson builder',
+          alt: 'Laderach chocolate',
           textures: [
             {
-              srcSet: [sprTexture, sprTextureLarge],
-              placeholder: sprTexturePlaceholder,
+              srcSet: [laderach],
+              placeholder: sliceTexturePlaceholder,
             },
           ],
         }}
@@ -104,21 +112,22 @@ export const Home = () => {
         sectionRef={projectTwo}
         visible={visibleSections.includes(projectTwo.current)}
         index={2}
-        title="Video game progress tracking"
-        description="Design and development for a video game tracking app built in React Native"
-        buttonText="View website"
-        buttonLink="https://gamestack.hamishw.com"
+        title="Smooth Games Powered by Webgl"
+        description={getDescforMobGames()}
+        urduWord={'اعتماد'}
+        buttonText="Learn More"
+        buttonLink="/projects/"
         model={{
           type: 'phone',
-          alt: 'App login screen',
+          alt: 'Stack tower game',
           textures: [
             {
-              srcSet: [gamestackTexture, gamestackTextureLarge],
-              placeholder: gamestackTexturePlaceholder,
+              srcSet: [vertex],
+              placeholder: sprTexturePlaceholder,
             },
             {
-              srcSet: [gamestackTexture2, gamestackTexture2Large],
-              placeholder: gamestackTexture2Placeholder,
+              srcSet: [stack],
+              placeholder: sprTexturePlaceholder,
             },
           ],
         }}
@@ -128,16 +137,17 @@ export const Home = () => {
         sectionRef={projectThree}
         visible={visibleSections.includes(projectThree.current)}
         index={3}
-        title="Biomedical image collaboration"
-        description="Increasing the amount of collaboration in Slice, an app for biomedical imaging"
-        buttonText="View project"
-        buttonLink="/projects/slice"
+        title="SMIELS B2B ecommerce fintech"
+        description="Worked as project manager assistant dealing with requirement management, sprint planning and client meetings."
+        urduWord={' اور محنت'}
+        buttonText="Visit Website"
+        buttonLink="https://smiels.com/"
         model={{
           type: 'laptop',
-          alt: 'Annotating a biomedical image in the Slice app',
+          alt: 'Vertex Environment R3F',
           textures: [
             {
-              srcSet: [sliceTexture, sliceTextureLarge],
+              srcSet: [smiels],
               placeholder: sliceTexturePlaceholder,
             },
           ],
@@ -146,7 +156,7 @@ export const Home = () => {
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
-        id="details"
+        id="about"
       />
       <Footer />
     </div>

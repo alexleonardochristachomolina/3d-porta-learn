@@ -19,6 +19,7 @@ import { Fragment } from 'react';
 import styles from './Uses.module.css';
 
 export const Uses = () => {
+  return '';
   return (
     <Fragment>
       <Meta

@@ -33,7 +33,7 @@ const ArticlesPost = ({
   useEffect(() => {
     setDateTime(formatDate(date));
   }, [date, dateTime]);
-  
+
   const handleMouseEnter = () => {
     setHovered(true);
   };
@@ -65,7 +65,7 @@ const ArticlesPost = ({
           />
         </div>
       )}
-      <RouterLink href={`/articles/${slug}`} scroll={false}>
+      <RouterLink href={`/projects/${slug}`} scroll={false}>
         <a
           className={styles.postLink}
           onMouseEnter={handleMouseEnter}
@@ -149,7 +149,7 @@ export const Articles = ({ posts, featured }) => {
   const postsHeader = (
     <header className={styles.header}>
       <Heading className={styles.heading} level={5} as="h1">
-        <DecoderText text="Latest articles" />
+        <DecoderText text="My Projects" />
       </Heading>
       <Barcode />
     </header>
@@ -174,7 +174,7 @@ export const Articles = ({ posts, featured }) => {
   return (
     <article className={styles.articles}>
       <Meta
-        title="Articles"
+        title="Projects"
         description="A collection of technical design and development articles. May contain incoherent ramblings."
       />
       <Section className={styles.content}>

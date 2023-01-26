@@ -12,8 +12,8 @@
   color: var(--colorTextLight);
 }
 
-.link {
-  display: inline-flex;
+.lightText {
+  opacity: 0.5;
 }
 
 .date {

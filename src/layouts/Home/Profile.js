@@ -21,16 +21,37 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="Hi there" start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I’m Hamish, currently I live in Sydney working as a senior product designer at{' '}
-      <Link href="https://www.qwilr.com">Qwilr</Link>. My projects include UX design, UI
-      animations, and icon illustration. Being comfortable with code allows me to rapidly
-      prototype and validate experiences. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+      I’m Saad, currently I live in Lahore working remotely as a web developer for{' '}
+      <Link href="https://www.Scandiweb.com">Scandiweb</Link>. My projects include website
+      development, 3D-interactions, and digital media.
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      In my spare time I like to practice Brazilian Jiu Jitsu, play video games, and{' '}
-      <Link href="/projects/volkihar-knight">make mods</Link>. I’m always down for hearing
-      about new projects, so feel free to drop me a line.
+      Every time I write a piece of code, I get the feeling I have created a piece of art.
+      This deep interest has allowed me to experience multiple domains in computer
+      science.
+    </Text>
+    <Text className={styles.description} data-visible={visible} size="s" as="p">
+      <b>Skills Breakdown</b>
+      <br />
+      Dev: React, R3F, Gsap, Javascript, Php
+      <br />
+      Design: Figma, SASS, Tailwind, Gimp
+      <br />
+      Two Years of Work Experience
+      <br />
+      <br />
+      <b>My USP</b>
+      <br />
+      Eye for attention to details.
+      <br />
+      Communication Skills (IELTS 8.0)
+      <br />
+      Worked with 5+ Frameworks
+    </Text>
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+      Apart from work, I have a Black Belt in Budokàn Karate, Bachelors degree in Computer
+      Science & love to try new things. I’m always down for hearing about new projects, so
+      feel free to contact.
     </Text>
   </Fragment>
 );
@@ -74,7 +95,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   collapseDelay={1000}
                 />
                 <div className={styles.tagText} data-visible={visible}>
-                  About Me
+                  Me :)
                 </div>
               </div>
               <div className={styles.image}>
@@ -84,8 +105,12 @@ export const Profile = ({ id, visible, sectionRef }) => {
                   placeholder={profileImgPlaceholder}
                   srcSet={[profileImg, profileImgLarge]}
                   sizes={`(max-width: ${media.mobile}px) 100vw, 480px`}
-                  alt="Me standing in front of the Torii on Miyajima, an island off the coast of Hiroshima in Japan"
+                  alt="Me :)"
                 />
+                <span className={styles.svg} style={{ opacity: 0.5 }}>
+                  سعد عامر
+                </span>
+                {/**
                 <svg
                   aria-hidden="true"
                   width="135"
@@ -96,6 +121,7 @@ export const Profile = ({ id, visible, sectionRef }) => {
                 >
                   <use href={`${profileKatakana}#katakana-profile`} />
                 </svg>
+                */}
               </div>
             </div>
           </div>

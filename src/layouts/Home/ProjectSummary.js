@@ -1,10 +1,11 @@
-import projectKatakana from 'assets/katakana-project.svg?url';
+import projectKatakana from 'assets/katakana-project-old.svg?url';
 import { Button } from 'components/Button';
 import { Divider } from 'components/Divider';
 import { Heading } from 'components/Heading';
 import { deviceModels } from 'components/Model/deviceModels';
 import { Section } from 'components/Section';
 import { Text } from 'components/Text';
+import { Link } from 'components/Link';
 import { useTheme } from 'components/ThemeProvider';
 import { Transition } from 'components/Transition';
 import { useWindowSize } from 'hooks';
@@ -26,6 +27,7 @@ export const ProjectSummary = ({
   buttonText,
   buttonLink,
   alternate,
+  urduWord,
   ...rest
 }) => {
   const [focused, setFocused] = useState(false);
@@ -33,17 +35,32 @@ export const ProjectSummary = ({
   const { width } = useWindowSize();
   const titleId = `${id}-title`;
   const isMobile = width <= media.tablet;
-  const svgOpacity = theme.themeId === 'light' ? 0.7 : 1;
+  const svgOpacity = theme.themeId === 'light' ? 0.5 : 1;
   const indexText = index < 10 ? `0${index}` : index;
   const phoneSizes = `(max-width: ${media.tablet}px) 30vw, 20vw`;
   const laptopSizes = `(max-width: ${media.tablet}px) 80vw, 40vw`;
 
-  const renderKatakana = (device, visible) => (
+  const renderKatakana = (device, visible) => {
+    if (visible) {
+      return (
+        <p
+          data-visible={visible}
+          aria-hidden="true"
+          className={styles.svg}
+          data-device={device}
+        >
+          {urduWord}
+        </p>
+      );
+    } else {
+      return <></>;
+    }
+    /*
     <svg
       aria-hidden="true"
-      width="750"
-      height="137"
-      viewBox="0 0 750 137"
+      width="745.484"
+      height="217.285"
+      viewBox="0 0 745.484 217.285"
       data-visible={visible}
       data-light={theme.themeId === 'light'}
       style={cssProps({ opacity: svgOpacity })}
@@ -52,7 +69,8 @@ export const ProjectSummary = ({
     >
       <use href={`${projectKatakana}#katakana-project`} />
     </svg>
-  );
+    */
+  };
 
   const renderDetails = visible => (
     <div className={styles.details}>

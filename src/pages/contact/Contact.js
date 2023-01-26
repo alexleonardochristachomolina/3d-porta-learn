@@ -33,6 +33,7 @@ export const Contact = () => {
     try {
       setSending(true);
 
+      /*
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/message`, {
         method: 'POST',
         mode: 'cors',
@@ -54,6 +55,11 @@ export const Contact = () => {
       });
 
       if (statusError) throw new Error(statusError);
+        */
+
+      window.location.href = `mailto:saadamir.m@gmail.com?subject=${
+        'Message From - ' + email.value
+      }&body=${message.value}`;
 
       setComplete(true);
       setSending(false);
@@ -151,7 +157,7 @@ export const Contact = () => {
               className={styles.completeTitle}
               data-status={status}
             >
-              Message Sent
+              Send the Message
             </Heading>
             <Text
               size="l"
